@@ -39,7 +39,7 @@ public class Card implements Serializable {
     @Id
     @Basic(optional = false)
     @Column(name = "num_carte")
-    private Integer numCarte;
+    private String numCarte;
     @Basic(optional = false)
     @Column(name = "type_carte")
     private String typeCarte;
@@ -60,11 +60,11 @@ public class Card implements Serializable {
     public Card() {
     }
 
-    public Card(Integer numCarte) {
+    public Card(String numCarte) {
         this.numCarte = numCarte;
     }
 
-    public Card(Integer numCarte, String typeCarte, Date dateExp, String nomCarte, int cvv, float solde) {
+    public Card(String numCarte, String typeCarte, Date dateExp, String nomCarte, int cvv, float solde) {
         this.numCarte = numCarte;
         this.typeCarte = typeCarte;
         this.dateExp = dateExp;
@@ -73,11 +73,11 @@ public class Card implements Serializable {
         this.solde = solde;
     }
 
-    public Integer getNumCarte() {
+    public String getNumCarte() {
         return numCarte;
     }
 
-    public void setNumCarte(Integer numCarte) {
+    public void setNumCarte(String numCarte) {
         this.numCarte = numCarte;
     }
 

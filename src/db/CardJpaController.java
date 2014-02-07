@@ -61,7 +61,7 @@ public class CardJpaController implements Serializable {
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                Integer id = card.getNumCarte();
+                String id = card.getNumCarte();
                 if (findCard(id) == null) {
                     throw new NonexistentEntityException("The card with id " + id + " no longer exists.");
                 }
@@ -74,7 +74,7 @@ public class CardJpaController implements Serializable {
         }
     }
 
-    public void destroy(Integer id) throws NonexistentEntityException {
+    public void destroy(String id) throws NonexistentEntityException {
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -119,7 +119,7 @@ public class CardJpaController implements Serializable {
         }
     }
 
-    public Card findCard(Integer id) {
+    public Card findCard(String id) {
         EntityManager em = getEntityManager();
         try {
             return em.find(Card.class, id);
